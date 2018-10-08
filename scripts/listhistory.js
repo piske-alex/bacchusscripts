@@ -10,7 +10,7 @@ myContract.getPastEvents('Transfer', {
     //filter: {_from: '0xa558475680f0fafd6048b702b9334344236f86b4', _to: '0xa558475680f0fafd6048b702b9334344236f86b4'}, // Using an array means OR: e.g. 20 or 23
     fromBlock: 6464629,
     toBlock: 'latest'
-}, function(error, events){ console.log(error.message+events); })
+}, function(error, events){ console.log(error+events); })
     .then(function(events){
         console.log(events) // same results as the optional callback above
     });
