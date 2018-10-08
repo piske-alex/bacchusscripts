@@ -1,7 +1,7 @@
 const Web3 = require('web3');
 const config = require('./config.js');
 let abi = config.abi;
-const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+const web3 = new Web3(new Web3.providers.IpcProvider('/home/alex/.ethereum/geth.ipc',net));
 
 var myContract = new web3.eth.Contract(abi, '0x0618822550a8483176e7b8cf7ce57cc26294a927');
 
