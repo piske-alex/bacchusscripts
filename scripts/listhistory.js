@@ -1,5 +1,6 @@
 const Web3 = require('web3');
 const config = require('./config.js');
+const net = require('net');
 let abi = config.abi;
 const web3 = new Web3(new Web3.providers.IpcProvider('/home/alex/.ethereum/geth.ipc',net));
 
