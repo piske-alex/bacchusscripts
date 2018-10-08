@@ -14,7 +14,7 @@ var myContract = new web3.eth.Contract(abi, '0x0618822550a8483176e7b8cf7ce57cc26
         console.log(JSON.stringify(events)) // same results as the optional callback above
     });*/
 
-myContract.events.MyEvent({
+myContract.events.Transfer({
     //filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
     fromBlock: 6464629
 }, function(error, event){ console.log(event); })
