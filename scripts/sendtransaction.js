@@ -1,27 +1,29 @@
 const Web3 = require('web3');
-const config = require('config');
-let abi = config.abi;
+const config = require('./config.js');
+//let abi = config.abi;
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
 const main = async () => {
     // This code was written and tested using web3 version 1.0.0-beta.26
-    console.log(`web3 version: ${web3.version}`)
+    //console.log(`web3 version: ${web3.version}`)
 
     // Who holds the token now?
-    var myAddress = "0x97...";
+    var myAddress = process.argv[2]
 
     // Who are we trying to send this token to?
-    var destAddress = "0x4f...";
+    var destAddress = process.argv[3]
 
     // If your token is divisible to 8 decimal places, 42 = 0.00000042 of your token
-    var transferAmount = 1;
+    var transferAmount = process.argv[4]
+
+    var my_privkey = process.argv[5]
 
     // Determine the nonce
     var count = await web3.eth.getTransactionCount(myAddress);
-    console.log(`num transactions so far: ${count}`);
+    //console.log(`num transactions so far: ${count}`);
 
     // This file is just JSON stolen from the contract page on etherscan.io under "Contract ABI"
-    var abiArray = JSON.parse(fs.readFileSync(path.resolve(__dirname, './tt3.json'), 'utf-8'));
+    var abiArray = config.abi;
 
     // This is the address of the contract which created the ERC20 token
     var contractAddress = "0x0618822550a8483176e7b8cf7ce57cc26294a927";
