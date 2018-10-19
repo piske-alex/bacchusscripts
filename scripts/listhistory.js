@@ -8,6 +8,7 @@ var myContract = new web3.eth.Contract(abi, '0x0618822550a8483176e7b8cf7ce57cc26
 let eventsfinal = []
 web3.eth.getBlockNumber(function(error, result){
     //console.log(result)
+    result = 6481287;
     (async () => {
             for(var i = 0;i<10;i++){
                 myContract.getPastEvents('Transfer', {
@@ -29,7 +30,7 @@ web3.eth.getBlockNumber(function(error, result){
                         result-=999// same results as the optional callback above
 
                     });
-                console.log('sd')
+                //console.log('sd')
             }
     }
     )()
