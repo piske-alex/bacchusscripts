@@ -1,5 +1,6 @@
 const Web3 = require('web3');
 const config = require('./config.js');
+var Tx = require('ethereumjs-tx');
 //let abi = config.abi;
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
