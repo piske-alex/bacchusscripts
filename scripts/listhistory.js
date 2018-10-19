@@ -19,8 +19,13 @@ web3.eth.getBlockNumber(function(error, result){
                 delete element.signature;
                 delete element.logIndex;
                 delete element.transactionIndex;
-                delete element.blockHash;
+                //delete element.blockHash;
                 delete element.address;
+                delete element.removed
+                delete element.transactionLogIndex
+                delete element.type
+                delete element.id
+                delete element.transactionHash
             });
             console.log(JSON.stringify(events))
             process.exit()// same results as the optional callback above
