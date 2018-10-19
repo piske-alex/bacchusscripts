@@ -38,8 +38,8 @@ const main = async () => {
     var rawTransaction = {
         "from": myAddress,
         "nonce": "0x" + count.toString(16),
-        "gasPrice": "0x003B9ACA00",
-        "gasLimit": "0x250CA",
+        "gasPrice": "0x0012A05F200",
+        "gasLimit": "0x30D40",
         "to": contractAddress,
         "value": "0x0",
         "data": contract.methods.transfer(destAddress, transferAmount).encodeABI(),
