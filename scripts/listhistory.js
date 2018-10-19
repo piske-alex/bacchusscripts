@@ -28,6 +28,7 @@ web3.eth.getBlockNumber(function(error, result){
                 result-=999// same results as the optional callback above
             });
     }
+    console.log(JSON.stringify(eventsfinal))
 
 })
 
