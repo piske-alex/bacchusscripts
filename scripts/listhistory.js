@@ -10,7 +10,7 @@ myContract.getPastEvents('allEvents', {
     //filter: {_from: '0xa558475680f0fafd6048b702b9334344236f86b4', _to: '0xa558475680f0fafd6048b702b9334344236f86b4'}, // Using an array means OR: e.g. 20 or 23
     //fromBlock: 6464629,
     toBlock: 'latest'
-}, function(error, events){  })
+}, function(error, events){ console.log(error,events) })
     .then(function(events){
         events.forEach(function(element) {
             delete element.raw;
