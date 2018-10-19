@@ -26,6 +26,7 @@ web3.eth.getBlockNumber(function(error, result){
                             delete element.blockHash;
                             delete element.address;
                             eventsfinal.push(element)
+                            console.log(element)
                         });
                         result-=999// same results as the optional callback above
 
