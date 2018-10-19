@@ -55,9 +55,7 @@ const main = async () => {
 
     // Comment out these three lines if you don't really want to send the TX right now
     console.log(`Attempting to send signed tx:  ${serializedTx.toString('hex')}`);
-    var receipt = await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'));
-    console.log(`Receipt info:  ${JSON.stringify(receipt, null, '\t')}`);
-
+    web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex')).on('receipt', console.log);
     // The balance may not be updated yet, but let's check
     balance = await contract.methods.balanceOf(myAddress).call();
     console.log(`Balance after send: ${balance}`);
