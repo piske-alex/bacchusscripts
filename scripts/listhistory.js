@@ -8,26 +8,30 @@ var myContract = new web3.eth.Contract(abi, '0x0618822550a8483176e7b8cf7ce57cc26
 let eventsfinal = []
 web3.eth.getBlockNumber(function(error, result){
     //console.log(result)
-    for(var i = 0;i<10;i++){
-        myContract.getPastEvents('Transfer', {
-            //filter: {_from: '0xa558475680f0fafd6048b702b9334344236f86b4', _to: '0xa558475680f0fafd6048b702b9334344236f86b4'}, // Using an array means OR: e.g. 20 or 23
-            //fromBlock: result-5999,
-            fromBlock:result-999,
-            toBlock: result
-        }, function(error, events){  })
-            .then(function(events){
-                events.forEach(function(element) {
-                    delete element.raw;
-                    delete element.signature;
-                    delete element.logIndex;
-                    delete element.transactionIndex;
-                    delete element.blockHash;
-                    delete element.address;
-                    eventsfinal.push(element)
-                });
-                result-=999// same results as the optional callback above
-            });
+    (async () => {
+            for(var i = 0;i<10;i++){
+                myContract.getPastEvents('Transfer', {
+                    //filter: {_from: '0xa558475680f0fafd6048b702b9334344236f86b4', _to: '0xa558475680f0fafd6048b702b9334344236f86b4'}, // Using an array means OR: e.g. 20 or 23
+                    //fromBlock: result-5999,
+                    fromBlock:result-999,
+                    toBlock: result
+                }, function(error, events){  })
+                    .then(function(events){
+                        events.forEach(function(element) {
+                            delete element.raw;
+                            delete element.signature;
+                            delete element.logIndex;
+                            delete element.transactionIndex;
+                            delete element.blockHash;
+                            delete element.address;
+                            eventsfinal.push(element)
+                        });
+                        result-=999// same results as the optional callback above
+                    });
+            }
     }
+    )()
+
     console.log(JSON.stringify(eventsfinal))
 
 })
