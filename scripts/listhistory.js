@@ -26,19 +26,18 @@ var myContract = new web3.eth.Contract(abi, '0x0618822550a8483176e7b8cf7ce57cc26
             process.exit()// same results as the optional callback above
         });
 })*/
-myContract.events.Transfer({ fromBlock: 0, },function(error, events){ })
-    .then(function(events){
-        events.forEach(function(element) {
-            delete element.raw;
-            delete element.signature;
-            delete element.logIndex;
-            delete element.transactionIndex;
-            delete element.blockHash;
-            delete element.address;
-        });
-        console.log(JSON.stringify(events))
-        process.exit()// same results as the optional callback above
-    })
+myContract.events.Transfer({ fromBlock: 0, },function(error, events){ events.forEach(function(element) {
+    delete element.raw;
+    delete element.signature;
+    delete element.logIndex;
+    delete element.transactionIndex;
+    delete element.blockHash;
+    delete element.address;
+});
+    console.log(JSON.stringify(events))
+    process.exit()})
+
+
 /*
 
 /*myContract.events.Transfer({}, { fromBlock: 6464623, toBlock: 'latest' }).get((error, eventResult) => {
