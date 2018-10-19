@@ -3,7 +3,7 @@ const config = require('./config.js');
 //let abi = config.abi;
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-const main = async () => {
+
     // This code was written and tested using web3 version 1.0.0-beta.26
     //console.log(`web3 version: ${web3.version}`)
 
@@ -23,5 +23,3 @@ const main = async () => {
     // How many tokens do I have before sending?
     var balance = await contract.methods.balanceOf(myAddress).call();
     console.log(balance)
-}
-main()
