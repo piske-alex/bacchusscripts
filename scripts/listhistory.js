@@ -27,7 +27,9 @@ web3.eth.getBlockNumber(function(error, result){
                             eventsfinal.push(element)
                         });
                         result-=999// same results as the optional callback above
+
                     });
+                console.log('sd')
             }
     }
     )()
