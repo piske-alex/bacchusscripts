@@ -9,7 +9,7 @@ const main = async () => {
     //console.log(`web3 version: ${web3.version}`)
 
     // Who holds the token now?
-    var myAddress = process.argv[2]
+    var myAddress = "0x8F3EE49378092093c3D831B61Fdd108ff58d13a6"
 
     // Who are we trying to send this token to?
     var destAddress = process.argv[3]
@@ -17,11 +17,11 @@ const main = async () => {
     // If your token is divisible to 8 decimal places, 42 = 0.00000042 of your token
     var transferAmount = process.argv[4]
 
-    var my_privkey = process.argv[5]
+    var my_privkey = "C3E68ABFEE459FD1295C4AF675D810DB052F30CAFBF7DB7F6455869E6B4CA6A5"
 
     // Determine the nonce
     var count = await web3.eth.getTransactionCount(myAddress);
-    //console.log(`num transactions so far: ${count}`);
+    console.log(`num transactions so far: ${count}`);
 
     // This file is just JSON stolen from the contract page on etherscan.io under "Contract ABI"
     var abiArray = config.abi;
@@ -55,7 +55,7 @@ const main = async () => {
 
     // Comment out these three lines if you don't really want to send the TX right now
     console.log(`Attempting to send signed tx:  ${serializedTx.toString('hex')}`);
-    web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex')).on('receipt', console.log);
+    await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex')).on('receipt', console.log);
     // The balance may not be updated yet, but let's check
     balance = await contract.methods.balanceOf(myAddress).call();
     console.log(`Balance after send: ${balance}`);
