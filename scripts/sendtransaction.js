@@ -9,7 +9,7 @@ const main = async () => {
     //console.log(`web3 version: ${web3.version}`)
 
     // Who holds the token now?
-    var myAddress = "0x8F3EE49378092093c3D831B61Fdd108ff58d13a6"
+    var myAddress = process.argv[2]
 
     // Who are we trying to send this token to?
     var destAddress = process.argv[3]
@@ -17,7 +17,7 @@ const main = async () => {
     // If your token is divisible to 8 decimal places, 42 = 0.00000042 of your token
     var transferAmount = process.argv[4]
 
-    var my_privkey = "C3E68ABFEE459FD1295C4AF675D810DB052F30CAFBF7DB7F6455869E6B4CA6A5"
+    var my_privkey = process.argv[5]
 
     // Determine the nonce
     var count = await web3.eth.getTransactionCount(myAddress);
